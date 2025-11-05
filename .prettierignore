@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+bun.lockb
+package-lock.json
+yarn.lock
+
+# Build outputs
+dist/
+build/
+lib/
+coverage/
+
+# Config files
+*.config.js
+*.config.mjs
+bunfig.toml
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.d.ts

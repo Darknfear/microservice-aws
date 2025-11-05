@@ -1,0 +1,112 @@
+{
+  "name": "evo-microservice-api",
+  "version": "0.0.1",
+  "description": "EVO Microservice API - A NestJS microservices system with CQRS + Event Sourcing",
+  "author": "EVO Development Team",
+  "private": true,
+  "license": "UNLICENSED",
+  "packageManager": "bun@1.1.38",
+  "scripts": {
+    "build": "bun build ./src/main.ts --outdir ./dist --target bun",
+    "build:nest": "nest build",
+    "format": "bunx prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format:check": "bunx prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "bun run dist/main.js",
+    "start:dev": "bun --watch --hot src/main.ts",
+    "start:debug": "bun --inspect --watch --hot src/main.ts",
+    "start:prod": "bun run dist/main.js",
+    "start:nest": "nest start",
+    "start:nest:dev": "nest start --watch",
+    "start:nest:debug": "nest start --debug --watch",
+    "lint": "bunx eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "bunx eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:check": "bunx eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+    "test": "bun test",
+    "test:jest": "bunx jest",
+    "test:watch": "bun test --watch",
+    "test:cov": "bunx jest --coverage",
+    "test:debug": "bun --inspect-brk test",
+    "test:e2e": "bunx jest --config ./test/jest-e2e.json",
+    "install:clean": "rm -rf node_modules bun.lockb && bun install",
+    "typecheck": "bunx tsc --noEmit",
+    "typecheck:watch": "bunx tsc --noEmit --watch",
+    "dev": "bun --watch --hot src/main.ts",
+    "dev:verbose": "bun --watch --hot --verbose src/main.ts",
+    "code:check": "bun run typecheck && bun run lint:check && bun run format:check",
+    "code:fix": "bun run lint:fix && bun run format",
+    "pre-commit": "bun run code:check && bun run test",
+    "prepare": "bunx husky install || true"
+  },
+  "dependencies": {
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.0.1",
+    "@nestjs/platform-express": "^11.0.1",
+    "@nestjs/platform-fastify": "^11.1.7",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.18.0",
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.1",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.10.7",
+    "@types/supertest": "^6.0.2",
+    "bun-types": "latest",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.2",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.0.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.4.2",
+    "source-map-support": "^0.5.21",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "type": "module",
+  "module": "src/main.ts",
+  "engines": {
+    "bun": ">=1.1.0",
+    "node": ">=20.0.0"
+  },
+  "trustedDependencies": [
+    "@nestjs/cli"
+  ],
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "bunx eslint --fix",
+      "bunx prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "bunx prettier --write"
+    ]
+  }
+}

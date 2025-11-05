@@ -1,0 +1,54 @@
+# Bun configuration file for EVO Microservice API
+
+[install]
+# Configure package installation behavior
+cache = true
+# Use exact versions from lockfile
+exact = false
+# Auto-install peer dependencies
+auto = true
+# Disable progress bar for CI environments
+progress = true
+# Production install mode
+production = false
+
+[install.scopes]
+# Configure scoped package registries if needed
+# "@mycompany" = "https://npm.mycompany.com/"
+
+[test]
+# Test configuration
+preload = ["./test/setup.ts"]
+# Coverage settings
+coverage = true
+# Test timeout in milliseconds
+timeout = 30000
+
+[run]
+# Runtime configuration
+# Enable hot reload for development
+hot = true
+# Watch mode configuration
+watch = true
+
+# TypeScript configuration
+transpiler = "bun"
+
+# Logging configuration
+logLevel = "info"
+
+# Watch patterns - monitor all TypeScript files in src directory
+[watch]
+# Include patterns
+include = [
+  "src/**/*.ts",
+  "src/**/*.js",
+  "src/**/*.json"
+]
+# Exclude patterns
+exclude = [
+  "node_modules/**",
+  "dist/**",
+  "coverage/**",
+  "*.log"
+]

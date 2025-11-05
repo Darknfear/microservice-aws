@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-typescript-next",
+    "editorconfig.editorconfig",
+    "ms-vscode.vscode-json",
+    "oven.bun-vscode",
+    "redhat.vscode-yaml"
+  ]
+}
