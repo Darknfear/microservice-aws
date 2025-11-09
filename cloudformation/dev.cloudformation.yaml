@@ -1,9 +1,0 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: A sample template
-Resources:
-# Create a S3 Resource for the EVO Microservice API
-EvoMicroserviceApiS3:
-  Type: AWS::S3::Bucket
-  Properties:
-    BucketName: evo-microservice-api-dev
-    AccessControl:

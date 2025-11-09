@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigurationModule } from './libs/core/configuration/config.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ConfigurationModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {
   // NestJS Module - intentionally empty

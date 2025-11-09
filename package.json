@@ -7,22 +7,12 @@
   "license": "UNLICENSED",
   "packageManager": "bun@1.1.38",
   "scripts": {
-    "build": "bun build ./src/main.ts --outdir ./dist --target bun",
-    "build:nest": "nest build",
     "format": "bunx prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "format:check": "bunx prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "bun run dist/main.js",
-    "start:dev": "bun --watch --hot src/main.ts",
-    "start:debug": "bun --inspect --watch --hot src/main.ts",
-    "start:prod": "bun run dist/main.js",
-    "start:nest": "nest start",
-    "start:nest:dev": "nest start --watch",
-    "start:nest:debug": "nest start --debug --watch",
     "lint": "bunx eslint . --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "bunx eslint . --ext .ts,.tsx,.js,.jsx --fix",
     "lint:check": "bunx eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
     "test": "bun test",
-    "test:jest": "bunx jest",
     "test:watch": "bun test --watch",
     "test:cov": "bunx jest --coverage",
     "test:debug": "bun --inspect-brk test",
@@ -30,8 +20,10 @@
     "install:clean": "rm -rf node_modules bun.lockb && bun install",
     "typecheck": "bunx tsc --noEmit",
     "typecheck:watch": "bunx tsc --noEmit --watch",
-    "dev": "bun --watch --hot src/main.ts",
-    "dev:verbose": "bun --watch --hot --verbose src/main.ts",
+    "dev": "bun --watch --hot src/apps/${npm_config_service:-auth}/main.ts",
+    "build": "bun build ./src/apps/${npm_config_service:-auth}/main.ts --outdir ./dist/apps/${npm_config_service:-auth} --target bun",
+    "start": "bun run dist/apps/${npm_config_service:-auth}/main.js",
+    "build:service": "bun build",
     "code:check": "bun run typecheck && bun run lint:check && bun run format:check",
     "code:fix": "bun run lint:fix && bun run format",
     "pre-commit": "bun run code:check && bun run test",
@@ -39,11 +31,16 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/jwt": "^11.0.1",
     "@nestjs/platform-express": "^11.0.1",
-    "@nestjs/platform-fastify": "^11.1.7",
+    "@nestjs/typeorm": "^11.0.0",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.27"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -89,7 +86,11 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1",
+      "^@apps/(.*)$": "<rootDir>/apps/$1"
+    }
   },
   "type": "module",
   "module": "src/main.ts",

@@ -1,0 +1,9 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/apps/auth",
+    "rootDir": ".",
+    "tsBuildInfoFile": "../../../node_modules/.cache/tsconfig-auth.tsbuildinfo"
+  },
+  "include": ["**/*"]
+}
