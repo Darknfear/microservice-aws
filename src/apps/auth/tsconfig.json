@@ -2,8 +2,9 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/apps/auth",
-    "rootDir": ".",
-    "tsBuildInfoFile": "../../../node_modules/.cache/tsconfig-auth.tsbuildinfo"
+    "rootDir": "../../",
+    "tsBuildInfoFile": "../../../node_modules/.cache/tsconfig-auth.tsbuildinfo",
+    "ignoreDeprecations": "6.0"
   },
   "include": ["**/*"]
 }

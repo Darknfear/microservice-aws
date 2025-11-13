@@ -15,6 +15,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "rootDir": "./",
     "paths": {
       "@/*": ["src/*"],
       "@apps/*": ["src/apps/*"]
