@@ -1,6 +1,6 @@
 /**
  * Sign In Response DTO
- * 
+ *
  * Data Transfer Object for sign-in responses
  */
 export class SignInResponseDto {

@@ -12,7 +12,7 @@
  * Implementation depends on infrastructure (TypeORM, Prisma, etc.)
  */
 
-import { BaseEntity } from './entity';
+import type { BaseEntity } from './entity';
 
 export interface IBaseRepository<T extends BaseEntity<any>> {
   /**

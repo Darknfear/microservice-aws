@@ -1,6 +1,6 @@
 /**
  * Sign In Request DTO
- * 
+ *
  * Data Transfer Object for sign-in requests
  */
 export class SignInRequestDto {

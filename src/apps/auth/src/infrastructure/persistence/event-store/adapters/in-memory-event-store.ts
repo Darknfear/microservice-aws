@@ -26,8 +26,8 @@ type EventHandler = (event: DomainEvent) => Promise<void>;
 @Injectable()
 export class InMemoryEventStore implements IEventStore {
   private events: StoredEvent[] = [];
-  private subscriptions: Map<string, EventHandler[]> = new Map();
-  private eventCounter: number = 0;
+  private subscriptions = new Map<string, EventHandler[]>();
+  private eventCounter = 0;
 
   /**
    * Append events to the event store

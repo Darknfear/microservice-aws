@@ -2,7 +2,6 @@ import { ConfigurationModule } from '@/libs/core/configuration/configuration.mod
 import { MessageBrokerModule } from '@/libs/message-broker/message-broker.module';
 import { Module } from '@nestjs/common';
 
-// ========== INFRASTRUCTURE LAYER ==========
 // Event Store (Command DB)
 import { InMemoryEventStore } from './src/infrastructure/persistence/event-store/adapters/in-memory-event-store';
 
@@ -43,7 +42,7 @@ import { AuthController } from './src/presentation/http/controllers/auth.control
 @Module({
   imports: [
     ConfigurationModule,
-    MessageBrokerModule,
+    MessageBrokerModule.forRoot(),
 
     // Query DB: Read Models connection
     // NOTE: Uncomment this when you have PostgreSQL running

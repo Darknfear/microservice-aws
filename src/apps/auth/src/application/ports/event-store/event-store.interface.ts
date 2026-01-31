@@ -9,7 +9,7 @@
  * - Support event snapshots for performance
  */
 
-import { DomainEvent } from '@/libs/core/base';
+import type { DomainEvent } from '@/libs/core/base';
 
 export interface IEventStore {
   /**

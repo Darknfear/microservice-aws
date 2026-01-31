@@ -62,4 +62,3 @@ export class Email {
     return new Email(email);
   }
 }
-

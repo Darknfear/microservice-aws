@@ -48,7 +48,12 @@ export class Username {
     }
 
     // Cannot have consecutive underscores or hyphens
-    if (trimmed.includes('__') || trimmed.includes('--') || trimmed.includes('_-') || trimmed.includes('-_')) {
+    if (
+      trimmed.includes('__') ||
+      trimmed.includes('--') ||
+      trimmed.includes('_-') ||
+      trimmed.includes('-_')
+    ) {
       return false;
     }
 
@@ -83,4 +88,3 @@ export class Username {
     return new Username(username);
   }
 }
-

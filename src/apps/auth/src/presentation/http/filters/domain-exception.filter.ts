@@ -11,8 +11,8 @@
 import {
   InactiveUserError,
   InvalidCredentialsError,
-  UserNotFoundError,
   UserAlreadyExistsError,
+  UserNotFoundError,
 } from '@apps/auth/src/domain/errors';
 import { ArgumentsHost, Catch, ExceptionFilter, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
@@ -24,7 +24,7 @@ export class DomainExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<Response>();
 
     let statusCode = HttpStatus.INTERNAL_SERVER_ERROR;
-    let message = exception.message;
+    const message = exception.message;
 
     // Map domain errors to HTTP status codes
     if (exception instanceof UserNotFoundError) {
@@ -45,4 +45,3 @@ export class DomainExceptionFilter implements ExceptionFilter {
     });
   }
 }
-

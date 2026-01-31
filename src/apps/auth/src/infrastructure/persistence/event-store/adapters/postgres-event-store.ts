@@ -36,16 +36,16 @@ import {
 @Injectable()
 export class PostgresEventStore implements IEventStore {
   private readonly logger = new Logger(PostgresEventStore.name);
-  private readonly subscribers = new Map<string, Array<(event: DomainEvent) => Promise<void>>>();
+  private readonly subscribers = new Map<string, ((event: DomainEvent) => Promise<void>)[]>();
 
   // Event type to class mapping for deserialization
   private readonly eventClassMap: Record<string, any> = {
-    UserRegisteredEvent: UserRegisteredEvent,
-    UserSignedInEvent: UserSignedInEvent,
-    PasswordChangedEvent: PasswordChangedEvent,
-    UserDeactivatedEvent: UserDeactivatedEvent,
-    UserReactivatedEvent: UserReactivatedEvent,
-    InvalidSignInAttemptEvent: InvalidSignInAttemptEvent,
+    UserRegisteredEvent,
+    UserSignedInEvent,
+    PasswordChangedEvent,
+    UserDeactivatedEvent,
+    UserReactivatedEvent,
+    InvalidSignInAttemptEvent,
   };
 
   constructor(

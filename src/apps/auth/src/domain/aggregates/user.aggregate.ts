@@ -14,7 +14,7 @@
  * - Guards aggregate invariants
  */
 
-import { BaseEntity, DomainEvent } from '@/libs/core/base';
+import { BaseEntity, type DomainEvent } from '@/libs/core/base';
 import {
   InvalidSignInAttemptEvent,
   PasswordChangedEvent,

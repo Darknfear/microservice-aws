@@ -12,7 +12,7 @@
  * - Publish events to Message Broker for other services
  */
 
-import { UserAggregate } from '@apps/auth/src/domain/aggregates/user.aggregate';
+import type { UserAggregate } from '@apps/auth/src/domain/aggregates/user.aggregate';
 
 export interface IEventBus {
   /**

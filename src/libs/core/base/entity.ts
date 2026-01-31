@@ -109,12 +109,22 @@ export abstract class DomainEvent {
   readonly timestamp: Date;
   readonly version: number;
   readonly metadata?: Record<string, unknown>;
+  readonly payload?: Record<string, unknown>;
+  readonly prevData?: Record<string, unknown>;
 
-  constructor(aggregateId: string, version: number, metadata?: Record<string, unknown>) {
+  constructor(
+    aggregateId: string,
+    version: number,
+    payload?: Record<string, unknown>,
+    prevData?: Record<string, unknown>,
+    metadata?: Record<string, unknown>,
+  ) {
     this.aggregateId = aggregateId;
     this.timestamp = new Date();
     this.version = version;
     this.metadata = metadata;
+    this.payload = payload;
+    this.prevData = prevData;
   }
 
   /**
@@ -127,6 +137,8 @@ export abstract class DomainEvent {
       timestamp: this.timestamp,
       version: this.version,
       metadata: this.metadata,
+      payload: this.payload,
+      prevData: this.prevData,
     };
   }
 }

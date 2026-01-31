@@ -13,13 +13,9 @@
  * They coordinate between ports (repositories) and domain entities.
  */
 
-export interface UsecaseRequest {
-  [key: string]: unknown;
-}
+export type UsecaseRequest = Record<string, unknown>;
 
-export interface UsecaseResponse {
-  [key: string]: unknown;
-}
+export type UsecaseResponse = Record<string, unknown>;
 
 /**
  * Base class for all usecases
